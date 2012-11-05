@@ -52,6 +52,8 @@ class IrcBot extends Adapter
       self.receive new LeaveMessage(null)
 
   createUser: (channel, from) ->
+      if from is undefined
+        from = "unknown"
       user = @userForName from
       unless user?
         id = new Date().getTime().toString()
